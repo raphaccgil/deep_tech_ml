@@ -1,7 +1,7 @@
 # deep_tech_ml
 Projeto Demo para Apresentação na Deep Tech
 
-![alt text]
+![alt text](./img/dt_ml.png)
 
 ## Desafio:
 
