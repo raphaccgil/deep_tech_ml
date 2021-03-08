@@ -5,6 +5,7 @@ Example for train model
 import pickle
 from configparser import SafeConfigParser
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.model_selection import train_test_split
 import pandas as pd
 
 #Applying GradientBoostingClassifier Model
@@ -37,6 +38,7 @@ def clean_structure(df):
                         'Marital_Status'], axis=1)
     return df_clean
 
+
 def normalization_data(df_clean):
     '''
 
@@ -50,6 +52,20 @@ def normalization_data(df_clean):
          'Doctorate': 6}, inplace=True)
 
     return df_clean
+
+
+def separate_data(df_norm):
+    '''
+
+    :param df_norm:
+    :return:
+    '''
+    X_train,\
+    X_test,\
+    Y_train,\
+    Y_test = train_test_split(X, Y, test_size=0.3, random_state=44, shuffle=True)
+
+    return X_train, X_test, Y_train, Y_test
 
 
 def train(X_train, Y_Train):
@@ -71,11 +87,16 @@ def save_model(model):
     :return:
     '''
 
-    pkl_filename = "model_gen.pkl"
     with open(pkl_filename, 'wb') as file:
         pickle.dump(model, file)
 
 if __name__ == '__main__':
     parser = SafeConfigParser()
     parser.read('config.ini')
+    pkl_filename = parser.get('FILE', 'model')
     df = pd.read_csv(parser.get('FILE', 'csv'))
+    clean_df = clean_structure(df)
+    norm_df = normalization_data(clean_df)
+    X_train, X_test, Y_train, Y_test = separate_data(norm_df)
+    model = train(X_train, Y_train)
+    save_model(model)
