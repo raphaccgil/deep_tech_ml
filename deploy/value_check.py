@@ -6,20 +6,36 @@ import boto3
 import pickle
 from configparser import SafeConfigParser
 from sklearn.ensemble import GradientBoostingClassifier
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
 
 
-def lambda_handler(event,context):
+
+@app.route('/')
+def hello_world:
+    return 'Hey, we have Flask in a Docker container!'
+
+@app.route('/predict')
+def api():
     '''
     Call lambda service
-    :param event:
-    :param context:
+
     :return:
     '''
-
+    age = request.args.get('age')
+    gender = request.args.get('gender')
+    rel = request.args.get('rel')
+    aver_ut = request.args.get('aver_ut')
+    mth_inact = request.args.get('mth_inact')
+    credit = request.args.get('credit')
+    event = [age, gender, rel, aver_ut, mth_inact, credit]
     result = predict(event)
-    return {'StatusCode': 200,
-            'body': result[0]}
 
+    return jsonify(
+        status='Se 0 sem risco, se 1 com risco de saida no cartao',
+        result=result
+    )
 
 def predict(event):
     sample = event['body']

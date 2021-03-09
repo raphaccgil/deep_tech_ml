@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c2831d1b-6982-45d7-80ca-3a28960ddc93" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/deploy/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/value_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/value_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/train/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,23 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deploy/value_check.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding>
-                <element signature="e#40#52#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="38">
+              <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -106,11 +91,11 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/deploy/train_model.py" />
-        <option value="$PROJECT_DIR$/deploy/requirements.txt" />
         <option value="$PROJECT_DIR$/train/config.ini" />
         <option value="$PROJECT_DIR$/train/train_model.py" />
         <option value="$PROJECT_DIR$/deploy/config.ini" />
         <option value="$PROJECT_DIR$/deploy/value_check.py" />
+        <option value="$PROJECT_DIR$/deploy/requirements.txt" />
       </list>
     </option>
   </component>
@@ -129,7 +114,7 @@
     <option name="height" value="829" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -138,17 +123,7 @@
           <expand>
             <path>
               <item name="deep_tech_ml" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deep_tech_ml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deep_tech_ml" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deep_tech_ml" type="462c0819:PsiDirectoryNode" />
-              <item name="deploy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deep_tech_ml" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deep_tech_ml" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -225,20 +200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="5" selection-start-line="2" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -263,13 +224,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="5" selection-start-line="2" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy/value_check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="551">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#40#52#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
     </entry>
