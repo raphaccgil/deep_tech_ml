@@ -15,6 +15,17 @@ Identificar um perfil de usuário que tenha possibilidade de sair da conta. A id
 Temos 10.000 consumidores com dados desde salário, estado civil, entre outros
  No arquivo possue somente 16,07% que ocorreu saída.
 
+### Estrutura de código
+
+```
+-deploy
+  - code for microservice
+-notebook
+  -jupyter notebook
+-train
+  - code for retrain model
+```
+
 ## Resumoe da Apresentação
 
 A apresentação irá iniciar com uma explicação sobre o que é Machine Learning e

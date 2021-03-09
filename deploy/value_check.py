@@ -2,15 +2,13 @@
 Microservice using saved model
 '''
 
-import boto3
+
 import pickle
 from configparser import SafeConfigParser
 from sklearn.ensemble import GradientBoostingClassifier
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-
 
 @app.route('/')
 def hello_world:
@@ -50,6 +48,7 @@ def get_model():
     :return: Predicted model
     '''
 
+    parser = SafeConfigParser()
     parser.read('config.ini')
     pkl_filename = parser.get('FILE', 'model')
     with open(pkl_filename, 'rb') as file:
@@ -59,14 +58,6 @@ def get_model():
 
 
 if __name__ == '__main__':
-    '''
-    Test before senndinng to lambda service
-    '''
-    temp = {
-        'a': '1',
-        'b': 2
-    }
-    result = predict(temp)
-    print(result)
+    app.run(port=9028)
 
 
