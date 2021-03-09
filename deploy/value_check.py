@@ -5,19 +5,21 @@ Microservice using saved model
 
 import pickle
 from configparser import SafeConfigParser
-from sklearn.ensemble import GradientBoostingClassifier
 from flask import Flask, request, jsonify
+import numpy as np
 
 app = Flask(__name__)
 
+
 @app.route('/')
-def hello_world:
+def hello_world():
     return 'Hey, we have Flask in a Docker container!'
+
 
 @app.route('/predict')
 def api():
     '''
-    Call lambda service
+    Call API prediction
 
     :return:
     '''
@@ -27,19 +29,30 @@ def api():
     aver_ut = request.args.get('aver_ut')
     mth_inact = request.args.get('mth_inact')
     credit = request.args.get('credit')
-    event = [age, gender, rel, aver_ut, mth_inact, credit]
+    avg_rate = request.args.get('avg_rate')
+    event = [age, gender, rel, aver_ut, mth_inact, credit, avg_rate]
     result = predict(event)
 
     return jsonify(
-        status='Se 0 sem risco, se 1 com risco de saida no cartao',
+        status='Se OK sem risco, se RISCO com risco de churn',
         result=result
     )
 
+
 def predict(event):
-    sample = event['body']
+    '''
+
+    :param event: Data from API
+    :return: Results from model
+    '''
+    sample = np.array(event)
+    sample = np.expand_dims(sample, axis=0)
     model = get_model()
     result = model.predict(sample)
-    return result
+    if int(result) == 0:
+        return 'RISCO'
+    else:
+        return 'OK'
 
 
 def get_model():
@@ -49,15 +62,16 @@ def get_model():
     '''
 
     parser = SafeConfigParser()
-    parser.read('config.ini')
+    parser.read('./app/config.ini')
     pkl_filename = parser.get('FILE', 'model')
     with open(pkl_filename, 'rb') as file:
         pickle_model = pickle.load(file)
+
 
     return pickle_model
 
 
 if __name__ == '__main__':
-    app.run(port=9028)
+    app.run(host='0.0.0.0', port=9028)
 
 

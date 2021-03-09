@@ -1,5 +1,5 @@
 ### Bibliotecas necessárias ###
-
 scikit-learn==0.24.1
 pandas==1.2.3
 configparser==5.0.2
+numpy==1.20.1

@@ -7,9 +7,7 @@ from configparser import SafeConfigParser
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
 import pandas as pd
-
-#Applying GradientBoostingClassifier Model
-
+import numpy as np
 
 def clean_structure(df):
     '''
@@ -90,13 +88,39 @@ def save_model(model):
     with open(pkl_filename, 'wb') as file:
         pickle.dump(model, file)
 
-if __name__ == '__main__':
+
+def run_model(sample):
+    '''
+    Verify if the model run correctly
+    :return:
+    '''
     parser = SafeConfigParser()
     parser.read('config.ini')
     pkl_filename = parser.get('FILE', 'model')
-    df = pd.read_csv(parser.get('FILE', 'csv'))
-    clean_df = clean_structure(df)
-    norm_df = normalization_data(clean_df)
-    X_train, X_test, Y_train, Y_test = separate_data(norm_df)
-    model = train(X_train, Y_train)
-    save_model(model)
+    with open(pkl_filename, 'rb') as file:
+        pickle_model = pickle.load(file)
+
+    result = pickle_model.predict(sample)
+    print(result)
+
+
+if __name__ == '__main__':
+    test = 1
+    if test == 0:
+        parser = SafeConfigParser()
+        parser.read('config.ini')
+        pkl_filename = parser.get('FILE', 'model')
+        df = pd.read_csv(parser.get('FILE', 'csv'))
+        clean_df = clean_structure(df)
+        norm_df = normalization_data(clean_df)
+        X_train, X_test, Y_train, Y_test = separate_data(norm_df)
+        model = train(X_train, Y_train)
+        save_model(model)
+    else:
+        sample = [45, 1, 1, 5, 1, 12691.0, 0.061] ## exemplo sem risco
+        sample = [60, 1, 6, 0, 0, 40000, 0.061] ## exemplo com risco
+        sample = np.array(sample)
+        print(sample)
+        sample = np.expand_dims(sample, axis=0)
+        print(sample)
+        run_model(sample)

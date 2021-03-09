@@ -26,6 +26,23 @@ Temos 10.000 consumidores com dados desde salário, estado civil, entre outros
   - code for retrain model
 ```
 
+#### deploy
+```
+docker build -t app_sample .
+docker run -p 9028:9028 app_sample
+```
+Aqui apresenta container com os arquivos de configuração e o modelo trreinado
+
+#### train
+
+Aqui encontra onde treinar o modelo
+
+#### notebook 
+
+Aqui encontra o notebook com a exploração dos dados
+
+
+
 ## Resumoe da Apresentação
 
 A apresentação irá iniciar com uma explicação sobre o que é Machine Learning e

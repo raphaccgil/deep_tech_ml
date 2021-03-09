@@ -1,4 +1,4 @@
-### Bibliotecas necessárias ###
+### Bibliotecas necessarias ###
 
 scikit-learn==0.24.1
 configparser==5.0.2
